@@ -1,0 +1,61 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(255, 192, 203);
+}
+.harry{
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.heart{
+    position: relative;
+    display: inline-block;
+    height: 80px;
+    width: 130px;
+    background: linear-gradient(510deg, rgb(255, 0, 0), rgb(255, 0, 0));
+    transition: 2s;
+}
+.heart:hover{
+    transform: rotate(45deg) scale(1, 1);
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+    background: linear-gradient(510deg, rgb(255, 0, 0), rgb(255, 86, 114));
+    animation: beat 1s linear 2.1s infinite;
+}
+.heart::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(510deg, rgb(255, 0, 0), rgb(255, 0, 0));
+    transform: rotate(0);
+    transition: 2s;
+    transform-origin: right bottom;
+}
+.heart:hover::before{
+    transform: rotate(450deg) translateY(80px);
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+    border-bottom-right-radius: 200px;
+    background: linear-gradient(410deg, rgb(255, 0, 0), rgb(255, 86, 114));
+}
+
+@keyframes beat{
+    0%{
+        transform: rotate(45deg) scale(1, 1);
+    }
+    50%{
+        transform: rotate(45deg) scale(1.1, 1.1);
+    }
+    100%{
+        transform: rotate(45deg) scale(1, 1);
+    }
+}
